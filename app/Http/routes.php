@@ -17,3 +17,6 @@ Route::get('/', function () {
 
 
 Route::get('libro', ['as' => 'libro', 'uses' => 'ClaimController@index']);
+Route::auth();
+
+Route::get('/home', 'HomeController@index');
