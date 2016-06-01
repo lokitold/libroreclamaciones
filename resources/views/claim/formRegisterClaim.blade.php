@@ -1,4 +1,4 @@
-@extends('claim')
+@extends('layouts.claim')
 
 @section('content')
     Hola
