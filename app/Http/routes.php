@@ -14,3 +14,6 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+Route::get('libro', ['as' => 'libro', 'uses' => 'ClaimController@index']);
