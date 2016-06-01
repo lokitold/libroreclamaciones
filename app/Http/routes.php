@@ -11,12 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
+Route::get('reclamo', ['as' => 'libro', 'uses' => 'ClaimController@index']);
 
-Route::get('libro', ['as' => 'libro', 'uses' => 'ClaimController@index']);
 Route::auth();
 
-Route::get('/home', 'HomeController@index');
+Route::get('/', 'HomeController@index');
