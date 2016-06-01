@@ -8,8 +8,15 @@ use App\Http\Requests;
 
 class ClaimController extends Controller
 {
-    public function index()
+    public $productDefault = 'elcomercio';
+
+    public function index($productCode = null)
     {
-        return view('claim.formRegisterClaim');
+        if(empty($productCode)):
+            $productCode = $this->productDefault;
+        endif;
+
+        return view('claim.formRegisterClaim')
+            ->with('productCode',$productCode);
     }
 }
