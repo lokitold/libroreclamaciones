@@ -12,8 +12,16 @@ class AddForeignKeyTablePermisoRoles extends Migration
      */
     public function up()
     {
-        Schema::table('permiso_roles', function (Blueprint $table) {
+        Schema::table('permission_roles', function (Blueprint $table) {
             //
+            $table->integer('rol_id')->unsigned();
+            $table->foreign('rol_id')
+                ->references('id')->on('roles')
+                ->onDelete('cascade');
+            $table->integer('permission_id')->unsigned();
+            $table->foreign('permission_id')
+                ->references('id')->on('permissions')
+                ->onDelete('cascade');
         });
     }
 
@@ -24,8 +32,12 @@ class AddForeignKeyTablePermisoRoles extends Migration
      */
     public function down()
     {
-        Schema::table('permiso_roles', function (Blueprint $table) {
+        Schema::table('permission_roles', function (Blueprint $table) {
             //
+            $table->dropForeign(['rol_id']);
+            $table->dropColumn('rol_id');
+            $table->dropForeign(['permission_id']);
+            $table->dropColumn('permission_id');
         });
     }
 }
