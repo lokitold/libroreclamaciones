@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUserRoleProductsTable extends Migration
+class CreateUserRolProductsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,7 +12,7 @@ class CreateUserRoleProductsTable extends Migration
      */
     public function up()
     {
-        Schema::create('user__role__products', function (Blueprint $table) {
+        Schema::create('user_rol_products', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
         });
@@ -25,6 +25,6 @@ class CreateUserRoleProductsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('user__role__products');
+        Schema::drop('user_rol_products');
     }
 }
