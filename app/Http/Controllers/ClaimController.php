@@ -27,7 +27,9 @@ class ClaimController extends Controller
     }
 
 
-    public function register(){
-        echo "aca post";
+    public function register(Request $request){
+        //echo "aca post";
+
+        dd($request->all());
     }
 }
