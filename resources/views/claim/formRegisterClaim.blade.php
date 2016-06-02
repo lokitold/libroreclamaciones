@@ -71,6 +71,49 @@
                                             </div>
                                         </div>
 
+                                        <div class="form-group">
+                                            <label class="col-md-4 control-label" for="dni_ce">DNI / CE</label>
+                                            <div class="col-md-4">
+                                                <input id="name_tutor" class="form-control" type="text" value="" name="name_tutor">
+                                            </div>
+                                        </div>
+
+                                        <div class="checkbox">
+                                            <label><input type="checkbox" value="">Soy menor de edad</label>
+                                        </div>
+                                        <div class="panel panel-default">
+                                            <div class="panel-body">
+                                                Datos de padre madre o tutor
+
+                                                <div class="form-group">
+                                                    <label class="col-md-4 control-label" for="dni_ce">Nombres</label>
+                                                    <div class="col-md-4">
+                                                        <input id="dni_ce" class="form-control" type="text" value="" name="dni_ce">
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label class="col-md-4 control-label" for="dni_ce">Apellido Paterno</label>
+                                                    <div class="col-md-4">
+                                                        <input id="lastname_tutor" class="form-control" type="text" value="" name="lastname_tutor">
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label class="col-md-4 control-label" for="dni_ce">Apellido materno</label>
+                                                    <div class="col-md-4">
+                                                        <input id="mother_last_name_tutor" class="form-control" type="text" value="" name="mother_last_name_tutor">
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label class="col-md-4 control-label" for="dni_ce">DNI / CE</label>
+                                                    <div class="col-md-4">
+                                                        <input id="dni_ce_tutor" class="form-control" type="text" value="" name="dni_ce_tutor">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
 
 
                                     </div>
@@ -85,9 +128,30 @@
                                                        value="{{ old('business_name') }}">
                                                 @if ($errors->has('business_name'))
                                                     <span class="help-block">
-                                        <strong>{{ $errors->first('business_name') }}</strong>
-                                    </span>
+                                                        <strong>{{ $errors->first('business_name') }}</strong>
+                                                    </span>
                                                 @endif
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="col-md-4 control-label" for="ruc">Ruc</label>
+                                            <div class="col-md-4">
+                                                <input id="ruc" class="form-control" type="text" value="" name="ruc">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="col-md-4 control-label" for="dni_ce">Telefono</label>
+                                            <div class="col-md-4">
+                                                <input id="telefono" class="form-control" type="text" value="" name="telefono_empresa">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="col-md-4 control-label" for="email">Email</label>
+                                            <div class="col-md-4">
+                                                <input id="email_empresa" class="form-control" type="text" value="" name="email_empresa">
                                             </div>
                                         </div>
                                     </div>
