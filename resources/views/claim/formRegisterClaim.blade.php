@@ -1,6 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
+    <style type="text/css">
+        .box{
+            display: none;
+        }
+    </style>
     <div class="container">
         <div class="row">
             <div class="col-md-10 col-md-offset-1">
@@ -10,50 +15,43 @@
                         <form class="form-horizontal" role="form" method="POST" action="{{ url('/reclamo') }}">
                             {{ csrf_field() }}
 
+                            <div>
+                                <label><input type="radio" name="radio-tipo" value="persona"> Persona</label>
+                                <label><input type="radio" name="radio-tipo" value="empresa"> Empresa</label>
+                            </div>
 
-                            <fieldset>
-                                <input type="radio" name="radio-tipo" data-toggle="tab" data-target="#login-tab" value="persona"/>
-                                <label for="login">Persona Natural</label>
+                            <div class="persona box">
+                                <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
+                                    <label for="name" class="col-md-4 control-label">Nombre</label>
 
-                                <input type="radio" name="radio-tipo" data-toggle="tab" data-target="#register-tab" value="empresa"/>
-                                <label for="register">Empresa</label>
-                            </fieldset>
-
-                            <div class="tab-content">
-                                <div class="tab-pane" id="login-tab">
-
-                                    <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                                        <label for="name" class="col-md-4 control-label">Nombre</label>
-
-                                        <div class="col-md-6">
-                                            <input id="name" type="text" class="form-control" name="name"
-                                                   value="{{ old('name') }}">
-                                            @if ($errors->has('name'))
-                                                <span class="help-block">
+                                    <div class="col-md-6">
+                                        <input id="name" type="text" class="form-control" name="name"
+                                               value="{{ old('name') }}">
+                                        @if ($errors->has('name'))
+                                            <span class="help-block">
                                         <strong>{{ $errors->first('name') }}</strong>
                                     </span>
-                                            @endif
-                                        </div>
+                                        @endif
                                     </div>
+                                </div>
 
-                                    <div class="form-group{{ $errors->has('lastname') ? ' has-error' : '' }}">
-                                        <label for="lastname" class="col-md-4 control-label">Apellido paterno</label>
+                                <div class="form-group{{ $errors->has('lastname') ? ' has-error' : '' }}">
+                                    <label for="lastname" class="col-md-4 control-label">Apellido paterno</label>
 
-                                        <div class="col-md-6">
-                                            <input id="lastname" type="text" class="form-control" name="lastname"
-                                                   value="{{ old('lastname') }}">
+                                    <div class="col-md-6">
+                                        <input id="lastname" type="text" class="form-control" name="lastname"
+                                               value="{{ old('lastname') }}">
 
-                                            @if ($errors->has('lastname'))
-                                                <span class="help-block">
+                                        @if ($errors->has('lastname'))
+                                            <span class="help-block">
                                         <strong>{{ $errors->first('lastname') }}</strong>
                                     </span>
-                                            @endif
-                                        </div>
+                                        @endif
                                     </div>
                                 </div>
-                                <div class="tab-pane" id="register-tab">
-                                    Empresa
-                                </div>
+                            </div>
+                            <div class="empresa box">
+                                Empresa 
                             </div>
 
                             <div class="form-group">
@@ -70,3 +68,20 @@
         </div>
     </div>
 @endsection
+
+
+<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('input[type="radio"]').click(function(){
+            if($(this).attr("value")=="persona"){
+                $(".box").not(".persona").hide();
+                $(".persona").show();
+            }
+            if($(this).attr("value")=="empresa"){
+                $(".box").not(".empresa").hide();
+                $(".empresa").show();
+            }
+        });
+    });
+</script>
