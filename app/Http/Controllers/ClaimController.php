@@ -23,6 +23,6 @@ class ClaimController extends Controller
         endif;
 
         return view('claim.formRegisterClaim')
-            ->with('productCode',$product->codigo);
+            ->with('productName',$product->name);
     }
 }
