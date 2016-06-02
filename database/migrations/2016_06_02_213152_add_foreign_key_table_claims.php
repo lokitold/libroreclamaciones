@@ -18,6 +18,10 @@ class AddForeignKeyTableClaims extends Migration
             $table->foreign('office_id')
                 ->references('id')->on('offices')
                 ->onDelete('cascade');
+            $table->integer('client_id')->unsigned();
+            $table->foreign('client_id')
+                ->references('id')->on('clients')
+                ->onDelete('cascade');
         });
     }
 
@@ -32,6 +36,8 @@ class AddForeignKeyTableClaims extends Migration
             //
             $table->dropForeign(['office_id']);
             $table->dropColumn('office_id');
+            $table->dropForeign(['client_id']);
+            $table->dropColumn('client_id');
         });
     }
 }
