@@ -1,11 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-    <style type="text/css">
-        .box{
-            display: none;
-        }
-    </style>
     <div class="container">
         <div class="row">
             <div class="col-md-10 col-md-offset-1">
@@ -51,7 +46,7 @@
                                 </div>
                             </div>
                             <div class="empresa box">
-                                Empresa 
+                                Empresa
                             </div>
 
                             <div class="form-group">
@@ -70,18 +65,7 @@
 @endsection
 
 
-<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+
 <script type="text/javascript">
-    $(document).ready(function(){
-        $('input[type="radio"]').click(function(){
-            if($(this).attr("value")=="persona"){
-                $(".box").not(".persona").hide();
-                $(".persona").show();
-            }
-            if($(this).attr("value")=="empresa"){
-                $(".box").not(".empresa").hide();
-                $(".empresa").show();
-            }
-        });
-    });
+
 </script>
