@@ -25,4 +25,9 @@ class ClaimController extends Controller
         return view('claim.formRegisterClaim')
             ->with('productName',$product->name);
     }
+
+
+    public function register(){
+        echo "aca post";
+    }
 }
