@@ -14,8 +14,8 @@ class AddColumnsToRolesTable extends Migration
     {
         Schema::table('roles', function (Blueprint $table) {
             //
-            $table->string('name');
-            $table->integer('status')->length(1)->default(1);
+            $table->integer('status')->length(1)->default(1)->after('id');
+            $table->string('name')->after('id');
         });
     }
 
