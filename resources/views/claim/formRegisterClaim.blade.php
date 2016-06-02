@@ -14,13 +14,17 @@
                                 <div class="panel-body">
                                     <div class="form-group">
                                         <label for="name" class="col-md-1 control-label"></label>
+
                                         <div class="col-md-8">
-                                            <label><input type="radio" name="radio-tipo" value="persona"> Persona</label>
-                                            <label><input type="radio" name="radio-tipo" value="empresa"> Empresa</label>
+                                            <label><input type="radio" name="radio-tipo" value="persona">
+                                                Persona</label>
+                                            <label><input type="radio" name="radio-tipo" value="empresa">
+                                                Empresa</label>
                                         </div>
                                     </div>
 
-                                    <div class="persona box">
+                                    <div class="persona box boxactive">
+
                                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
                                             <label for="name" class="col-md-4 control-label">Nombre</label>
 
@@ -36,7 +40,8 @@
                                         </div>
 
                                         <div class="form-group{{ $errors->has('lastname') ? ' has-error' : '' }}">
-                                            <label for="lastname" class="col-md-4 control-label">Apellido paterno</label>
+                                            <label for="lastname" class="col-md-4 control-label">Apellido
+                                                paterno</label>
 
                                             <div class="col-md-4">
                                                 <input id="lastname" type="text" class="form-control" name="lastname"
@@ -44,18 +49,39 @@
 
                                                 @if ($errors->has('lastname'))
                                                     <span class="help-block">
-                                        <strong>{{ $errors->first('lastname') }}</strong>
-                                    </span>
+                                                        <strong>{{ $errors->first('lastname') }}</strong>
+                                                    </span>
                                                 @endif
                                             </div>
                                         </div>
+
+                                        <div class="form-group{{ $errors->has('mother_last_name') ? ' has-error' : '' }}">
+                                            <label for="mother_last_name" class="col-md-4 control-label">Apellido
+                                                materno</label>
+
+                                            <div class="col-md-4">
+                                                <input id="mother_last_name" type="text" class="form-control" name="mother_last_name"
+                                                       value="{{ old('mother_last_name') }}">
+
+                                                @if ($errors->has('mother_last_name'))
+                                                    <span class="help-block">
+                                                        <strong>{{ $errors->first('lastname') }}</strong>
+                                                    </span>
+                                                @endif
+                                            </div>
+                                        </div>
+
+
+
                                     </div>
                                     <div class="empresa box">
                                         <div class="form-group{{ $errors->has('business_name') ? ' has-error' : '' }}">
-                                            <label for="business_name" class="col-md-4 control-label">Razon social</label>
+                                            <label for="business_name" class="col-md-4 control-label">Razon
+                                                social</label>
 
                                             <div class="col-md-4">
-                                                <input id="business_name" type="text" class="form-control" name="business_name"
+                                                <input id="business_name" type="text" class="form-control"
+                                                       name="business_name"
                                                        value="{{ old('business_name') }}">
                                                 @if ($errors->has('business_name'))
                                                     <span class="help-block">

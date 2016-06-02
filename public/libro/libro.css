@@ -1,3 +1,6 @@
 .box{
     display: none;
 }
+.boxactive{
+    display: block;
+}
