@@ -33,8 +33,8 @@
                                                        value="{{ old('name') }}">
                                                 @if ($errors->has('name'))
                                                     <span class="help-block">
-                                        <strong>{{ $errors->first('name') }}</strong>
-                                    </span>
+                                                        <strong>{{ $errors->first('name') }}</strong>
+                                                    </span>
                                                 @endif
                                             </div>
                                         </div>
@@ -116,7 +116,31 @@
                                         </div>
 
 
+                                        <div class="form-group">
+                                            <label class="col-md-4 control-label" for="dni_ce">Telefono</label>
+                                            <div class="col-md-4">
+                                                <input id="telefono" class="form-control" type="text" value="" name="telefono">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="col-md-4 control-label" for="email">Email</label>
+                                            <div class="col-md-4">
+                                                <input id="email" class="form-control" type="text" value="" name="email">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="col-md-4 control-label" for="ruc">Direccion</label>
+                                            <div class="col-md-4">
+                                                <input id="direccion" class="form-control" type="text" value="" name="direccion">
+                                            </div>
+                                        </div>
+
+
                                     </div>
+
+
                                     <div class="empresa box">
                                         <div class="form-group{{ $errors->has('business_name') ? ' has-error' : '' }}">
                                             <label for="business_name" class="col-md-4 control-label">Razon
