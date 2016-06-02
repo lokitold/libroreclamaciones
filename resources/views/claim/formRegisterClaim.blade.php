@@ -12,9 +12,9 @@
                             <div class="panel panel-default">
                                 <div class="panel-heading">Identificación del consumidor reclamante</div>
                                 <div class="panel-body">
+
                                     <div class="form-group">
                                         <label for="name" class="col-md-1 control-label"></label>
-
                                         <div class="col-md-8">
                                             <label><input type="radio" name="radio-tipo" value="persona">
                                                 Persona</label>
@@ -139,7 +139,6 @@
 
 
                                     </div>
-
 
                                     <div class="empresa box">
                                         <div class="form-group{{ $errors->has('business_name') ? ' has-error' : '' }}">
