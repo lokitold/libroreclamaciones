@@ -188,7 +188,12 @@
                                     <h3 class="panel-title">Datos de Reclamación</h3>
                                 </div>
                                 <div class="panel-body">
-                                    Panel content
+                                    <div class="form-group">
+                                        <label class="col-md-4 control-label" for="email">Detalle del reclamo</label>
+                                        <div class="col-md-4">
+                                            <textarea class="form-control" rows="3" name="detalle"></textarea>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
 
