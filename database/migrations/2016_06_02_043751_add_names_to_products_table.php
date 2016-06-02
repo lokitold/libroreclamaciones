@@ -14,7 +14,7 @@ class AddNamesToProductsTable extends Migration
     {
         Schema::table('products', function (Blueprint $table) {
             //
-            $table->string('name');
+            $table->string('name')->after('codigo');
         });
     }
 
