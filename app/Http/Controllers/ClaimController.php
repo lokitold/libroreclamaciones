@@ -10,7 +10,7 @@ use App\Http\Requests\StoreClaimRequest;
 
 class ClaimController extends Controller
 {
-    public $productDefault = 'elcomercio';
+    public $productDefault = 'elcomercio.pe';
 
     public function index($productCode = null)
     {
