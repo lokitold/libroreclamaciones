@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Product;
 use App\Http\Requests\StoreClaimRequest;
+use App\Claim;
 
 class ClaimController extends Controller
 {
@@ -29,8 +30,23 @@ class ClaimController extends Controller
 
 
     public function store(StoreClaimRequest $request){
-        //echo "aca post";
 
-        dd($request->all());
+        # Guardar reclamo
+
+        $data = [
+            'name' => $request->name
+        ];
+
+        $codigo_reclamo = '123456';
+
+        $claim = new Claim();
+        $claim->data =json_encode();
+        $claim->codigo =$codigo_reclamo;
+        $claim->status = '1';
+        $claim->save();
+
+        return view('claim.messageConfirmRegister')
+            ->with('productName','');
+
     }
 }

@@ -1,0 +1,1 @@
+Tu reclamo ha sido registrado
