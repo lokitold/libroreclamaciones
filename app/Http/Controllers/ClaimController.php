@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Product;
+use App\Http\Requests\StoreClaimRequest;
 
 class ClaimController extends Controller
 {
@@ -27,7 +28,7 @@ class ClaimController extends Controller
     }
 
 
-    public function register(Request $request){
+    public function store(StoreBlogClaimRequest $request){
         //echo "aca post";
 
         dd($request->all());
