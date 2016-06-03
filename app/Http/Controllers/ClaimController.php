@@ -53,7 +53,7 @@ class ClaimController extends Controller
         $claim->save();
 
         $request->subject = 'Tu reclamo ha sido registrado con exito';
-        $request->email = 'vico.16c@gmail.com';
+        $request->email = 'victor.rojas@ec.pe';
 
         #envio mail Confirm
         \Mail::send('claim.mailConfirm', $data, function($message) use ($request)
@@ -66,6 +66,21 @@ class ClaimController extends Controller
 
         return view('claim.messageConfirmRegister')
             ->with('productName','');
+
+    }
+
+    public function status(Request $request){
+
+        $codigoReclamo = $request->get('cd');
+
+        $claim = Claim::where('status', 1)
+            ->where('codigo', $codigoReclamo)
+            ->first();
+
+        return view('claim.statusClaim')
+            ->with('claim',$claim);
+
+
 
     }
 }

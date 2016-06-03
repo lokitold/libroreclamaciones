@@ -51,7 +51,7 @@
                 <tr>
                     <td colspan="3">
                         Si desea ver el estado de su reclamo, haga clic <a
-                                href="http://{{  url("user/profile?cd=$codigo_reclamo") }}" style="color:#069"
+                                href="{{  url("reclamo?cd=$codigo_reclamo") }}" style="color:#069"
                                 target="_blank">aquí</a><br><br>
                     </td>
                 </tr>

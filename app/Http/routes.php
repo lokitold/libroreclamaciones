@@ -12,7 +12,9 @@
 */
 
 
-Route::get('reclamo', ['as' => 'libro', 'uses' => 'ClaimController@index']);
+
+Route::get('reclamo', ['as' => 'libro', 'uses' => 'ClaimController@status']);
+Route::get('reclamo/{productcode}', ['as' => 'libro', 'uses' => 'ClaimController@index']);
 Route::get('reclamo/p/{productcode?}', ['as' => 'libro', 'uses' => 'ClaimController@index']);
 Route::post('reclamo', ['as' => 'libro-post', 'uses' => 'ClaimController@store']);
 
