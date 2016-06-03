@@ -26,7 +26,7 @@ class StoreClaimRequest extends Request
     {
         return [
             //
-            //'name' => 'required|max:255',
+            //'name' => 'email|max:255',
         ];
     }
 
@@ -37,6 +37,15 @@ class StoreClaimRequest extends Request
         $validator->sometimes('name', 'required|max:255', function($input)
         {
             if($input->{'radio-tipo'} != 'empresa'):
+                return TRUE;
+            else:
+                return FALSE;
+            endif;
+        });
+
+        $validator->sometimes('business_name', 'required|max:255', function($input)
+        {
+            if($input->{'radio-tipo'} == 'empresa'):
                 return TRUE;
             else:
                 return FALSE;

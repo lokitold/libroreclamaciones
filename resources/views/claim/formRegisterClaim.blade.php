@@ -140,10 +140,10 @@
                                     </div>
 
                                     <div class="empresa box">
+                                        
                                         <div class="form-group{{ $errors->has('business_name') ? ' has-error' : '' }}">
                                             <label for="business_name" class="col-md-4 control-label">Razon
                                                 social</label>
-
                                             <div class="col-md-4">
                                                 <input id="business_name" type="text" class="form-control"
                                                        name="business_name"
