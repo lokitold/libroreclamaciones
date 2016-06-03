@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use App\Http\Requests\Request;
+use Illuminate\Support\Facades\Validator;
 
 class StoreClaimRequest extends Request
 {
@@ -25,7 +26,23 @@ class StoreClaimRequest extends Request
     {
         return [
             //
+            'name' => 'required|max:255',
         ];
+    }
+
+    protected function getValidatorInstance()
+    {
+        $validator = parent::getValidatorInstance();
+
+        // $validator->sometimes(...)
+
+        $validator->sometimes('name', 'required|max:255', function($input)
+        {
+            dd($input->{'radio-tipo'});
+            return apply_regex($input->dob) === true;
+        });
+
+        return $validator;
     }
 
     public function messages()
