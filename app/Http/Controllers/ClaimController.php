@@ -28,7 +28,7 @@ class ClaimController extends Controller
     }
 
 
-    public function store(StoreBlogClaimRequest $request){
+    public function store(StoreClaimRequest $request){
         //echo "aca post";
 
         dd($request->all());
