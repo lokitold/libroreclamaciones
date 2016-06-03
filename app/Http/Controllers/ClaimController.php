@@ -38,7 +38,7 @@ class ClaimController extends Controller
         $data = [
             'name' => $request->name,
             'codigo_reclamo' => $codigo_reclamo,
-            'tipo_desconformidad' => 'Queja',
+            'tipo_disconformidad' => 'Queja',
         ];
 
 
