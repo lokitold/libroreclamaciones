@@ -26,7 +26,7 @@ class StoreClaimRequest extends Request
     {
         return [
             //
-            'name' => 'required|max:255',
+            //'name' => 'required|max:255',
         ];
     }
 
@@ -34,13 +34,15 @@ class StoreClaimRequest extends Request
     {
         $validator = parent::getValidatorInstance();
 
-        // $validator->sometimes(...)
-
         $validator->sometimes('name', 'required|max:255', function($input)
         {
-            dd($input->{'radio-tipo'});
-            return apply_regex($input->dob) === true;
+            if($input->{'radio-tipo'} != 'empresa'):
+                return TRUE;
+            else:
+                return FALSE;
+            endif;
         });
+
 
         return $validator;
     }
