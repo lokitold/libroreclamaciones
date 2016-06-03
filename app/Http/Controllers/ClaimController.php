@@ -40,7 +40,10 @@ class ClaimController extends Controller
         $codigo_reclamo = '123456';
 
         $claim = new Claim();
-        $claim->data =json_encode();
+        $claim->data =json_encode($data);
+        $claim->codigo =$codigo_reclamo;
+        $claim->office_id = 12;
+        $claim->client_id = 2;
         $claim->codigo =$codigo_reclamo;
         $claim->status = '1';
         $claim->save();
