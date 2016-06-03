@@ -73,6 +73,10 @@ class ClaimController extends Controller
 
         $codigoReclamo = $request->get('cd');
 
+        if(empty($codigoReclamo)):
+            return redirect()->route('libroproducto',array('productcode' => 'elcomercio.pe'));
+        endif;
+
         $claim = Claim::where('status', 1)
             ->where('codigo', $codigoReclamo)
             ->first();
