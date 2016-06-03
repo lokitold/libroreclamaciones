@@ -72,4 +72,9 @@ class AuthController extends Controller
             'password' => bcrypt($data['password']),
         ]);
     }
+
+    protected function authenticated(){
+        //$request->session()->push('user.teams', 'developers');
+        echo "el usuario se autentico";exit;
+    }
 }
