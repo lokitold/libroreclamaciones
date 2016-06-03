@@ -33,11 +33,15 @@ class ClaimController extends Controller
 
         # Guardar reclamo
 
+        $codigo_reclamo = '123456';
+
         $data = [
-            'name' => $request->name
+            'name' => $request->name,
+            'codigo_reclamo' => $codigo_reclamo,
+            'tipo_desconformidad' => 'Queja',
         ];
 
-        $codigo_reclamo = '123456';
+
 
         $claim = new Claim();
         $claim->data =json_encode($data);
@@ -47,6 +51,18 @@ class ClaimController extends Controller
         $claim->codigo =$codigo_reclamo;
         $claim->status = '1';
         $claim->save();
+
+        $request->subject = 'Tu reclamo ha sido registrado con exito';
+        $request->email = 'vico.16c@gmail.com';
+
+        #envio mail Confirm
+        \Mail::send('claim.mailConfirm', $data, function($message) use ($request)
+        {
+            //asunto
+            $message->subject($request->subject);
+            //receptor
+            $message->to($request->email);
+        });
 
         return view('claim.messageConfirmRegister')
             ->with('productName','');

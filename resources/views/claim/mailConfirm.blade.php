@@ -10,13 +10,13 @@
     <tr>
         <td style="padding-top:10px;font-weight:bold;padding-right:6px">
             <div style="float:left">{% now "DATE_FORMAT" %}</div>
-            <div style="float:right">Número de Reclamo:&nbsp;&nbsp;&nbsp;{{codigo_reclamo}}</div>
+            <div style="float:right">Número de Reclamo:&nbsp;&nbsp;&nbsp;{{$codigo_reclamo}}</div>
         </td>
     </tr>
     <tr>
         <td>
             {% if data.tipo == "persona" %}
-            <h2 style="font-family:georgia">SR(a): {{resp.nombre}}</h2>
+            <h2 style="font-family:georgia">SR(a): {{$name}}</h2>
             {% else %}
             <h2 style="font-family:georgia">Estimado(a):</h2>
             {% endif %}
@@ -33,7 +33,7 @@
                 <tr>
                     <td align="right" width="371"><h3>Número de Reclamo :&nbsp;&nbsp;&nbsp;</h3></td>
                     <td width="371">
-                        <h3> {{codigo_reclamo}}</h3>
+                        <h3> {{$codigo_reclamo}}</h3>
                     </td>
                 </tr>
                 <tr>
@@ -45,13 +45,13 @@
                 <tr>
                     <td align="right"><h3>Tipo de Reclamo o Queja:&nbsp;&nbsp;&nbsp;</h3></td>
                     <td width="371">
-                        <h3>{{resp.tipo_disconformidad}}</h3>
+                        <h3>{{$tipo_disconformidad}}</h3>
                     </td>
                 </tr>
                 <tr>
                     <td colspan="3">
                         Si desea ver el estado de su reclamo, haga clic <a
-                                href="http://{{current_url}}/libro/reclamo?cd={{codigo_reclamo}}" style="color:#069"
+                                href="http://{{current_url}}/libro/reclamo?cd={{$codigo_reclamo}}" style="color:#069"
                                 target="_blank">aquí</a><br><br>
                     </td>
                 </tr>
