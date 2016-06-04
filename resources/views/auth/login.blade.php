@@ -36,7 +36,11 @@
     <div class="login-logo">
         <a href="{{ url('/home') }}"><b>InfyOm </b>Generator</a>
     </div>
-
+    @if(Session::has('message'))
+        <div class="alert alert-info">
+            {{ Session::get('message') }}
+        </div>
+    @endif
     <!-- /.login-logo -->
     <div class="login-box-body">
         <p class="login-box-msg">Sign in to start your session</p>
