@@ -26,7 +26,6 @@ class HomeController extends Controller
     {
         //var_dump();
         $data = $request->session()->all();
-        dump($data);
 
         return view('home');
     }
