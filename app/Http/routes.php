@@ -20,7 +20,10 @@ Route::post('reclamo', ['as' => 'libro-post', 'uses' => 'ClaimController@store']
 
 Route::auth();
 
-Route::get('/', 'HomeController@index');
+
+Route::group(['middleware' => ['auth','auth.product']], function () {
+    Route::get('/', 'HomeController@index');
+});
 
 
 /*
