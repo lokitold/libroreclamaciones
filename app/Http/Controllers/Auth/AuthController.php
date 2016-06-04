@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use App\Product;
+use App\UserRolProduct;
 use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
@@ -74,7 +76,18 @@ class AuthController extends Controller
     }
 
     protected function authenticated(){
-        //$request->session()->push('user.teams', 'developers');
-        echo "el usuario se autentico";exit;
+        $request = app('request');
+
+        $user = \Auth::user();
+        $productRols = UserRolProduct::where('user_id',$user->id)->first();
+
+        if(!empty($productRols) and is_object($productRols)):
+            $request->session()->put('user.product', $productRols->product_id);
+        else:
+            $request->session()->put('user.product', null);
+        endif;
+
+        return redirect()->intended($this->redirectPath());
+
     }
 }
