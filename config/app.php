@@ -162,6 +162,7 @@ return [
         \InfyOm\CoreTemplates\CoreTemplatesServiceProvider::class,
         InfyOm\AdminLTETemplates\AdminLTETemplatesServiceProvider::class,
         \InfyOm\GeneratorBuilder\GeneratorBuilderServiceProvider::class,
+        App\Providers\ComposerServiceProvider::class,
 
     ],
 
