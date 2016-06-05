@@ -11,6 +11,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.2/css/select2.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/admin-lte/2.3.3/css/AdminLTE.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/admin-lte/2.3.3/css/skins/_all-skins.min.css">
+    <style>
+        @media (max-width: 767px){ .skin-yellow-light .main-header .navbar .dropdown-menu li a {  color: black;  }}
+    </style>
 
     <!-- Ionicons -->
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
@@ -34,8 +37,30 @@
                 <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
                     <span class="sr-only">Toggle navigation</span>
                 </a>
+
                 <!-- Navbar Right Menu -->
                 <div class="navbar-custom-menu">
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <ul class="nav navbar-nav">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Cambiar Rol <span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                @foreach($dataUserRolProducts as $rolPro)
+                                    <li><a href="#">{{$rolPro->rol->name }} en {{$rolPro->product->name }}</a>
+                                        <form action="/LibroReclamaciones/Index/CambiarRol" method="post">
+                                            <input id="rol" name="rol" type="hidden" value="11">
+                                            <input name="__RequestVerificationToken" type="hidden" value="jtfgH00EdCUEvD5kCMMYNqe0AmRMQGaSs9LdDzw11UYYENTwjjj4c0YFvwablWuJa3baQv3drekA_v36lXbTnkDd5RnlrbokMycg1FIgXeNjrqIR35or1ilTCCBXhyy1y0IrThHRqghZKnpWEjIQZq85pbo-KqD6c9CqPRdSxH01">
+                                            <input type="submit" value="Admin en Ofertop">
+                                        </form>
+                                    </li>
+                                @endforeach
+                                {{--<li><a href="#">Admin en El Comercio</a></li>--}}
+                                {{--<li><a href="#">Gestor Reclamo en ofertop</a></li>--}}
+                                {{--<li class="divider"></li>--}}
+                            </ul>
+                        </li>
+                    </ul>
+                    <!-- /.navbar-collapse -->
                     <ul class="nav navbar-nav">
                         <!-- Messages: style can be found in dropdown.less-->
                         <li class="dropdown messages-menu">

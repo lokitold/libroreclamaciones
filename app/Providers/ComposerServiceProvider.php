@@ -15,7 +15,7 @@ class ComposerServiceProvider extends ServiceProvider
     public function boot()
     {
         //
-        View::composer(['products.*', 'user.*','home'], 'App\Http\ViewComposers\ProfileComposer');
+        View::composer(['products.*', 'users.*','home'], 'App\Http\ViewComposers\ProfileComposer');
     }
 
     /**
