@@ -23,6 +23,7 @@ Route::auth();
 
 Route::group(['middleware' => ['auth','auth.product']], function () {
     Route::get('/', 'HomeController@index');
+    Route::post('cambiar-rol', ['as' => 'cambiar-rol', 'uses' => 'HomeController@cambiarRol']);
 });
 
 

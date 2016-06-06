@@ -46,11 +46,13 @@
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Cambiar Rol <span class="caret"></span></a>
                             <ul class="dropdown-menu" role="menu">
                                 @foreach($dataUserRolProducts as $rolPro)
-                                    <li><a href="#">{{$rolPro->rol->name }} en {{$rolPro->product->name }}</a>
-                                        <form action="/LibroReclamaciones/Index/CambiarRol" method="post">
-                                            <input id="rol" name="rol" type="hidden" value="11">
-                                            <input name="__RequestVerificationToken" type="hidden" value="jtfgH00EdCUEvD5kCMMYNqe0AmRMQGaSs9LdDzw11UYYENTwjjj4c0YFvwablWuJa3baQv3drekA_v36lXbTnkDd5RnlrbokMycg1FIgXeNjrqIR35or1ilTCCBXhyy1y0IrThHRqghZKnpWEjIQZq85pbo-KqD6c9CqPRdSxH01">
-                                            <input type="submit" value="Admin en Ofertop">
+                                    <li>
+                                        <a onclick="document.getElementById('form{{$rolPro->id}}').submit();" href="#">{{$rolPro->rol->name }} en {{$rolPro->product->name }}</a>
+                                        <form id="form{{$rolPro->id}}" action="/cambiar-rol" method="post">
+                                            {{ csrf_field() }}
+                                            <input id="rol" name="rol" type="hidden" value="{{$rolPro->id}}">
+                                            {{--<input name="__RequestVerificationToken" type="hidden" value="jtfgH00EdCUEvD5kCMMYNqe0AmRMQGaSs9LdDzw11UYYENTwjjj4c0YFvwablWuJa3baQv3drekA_v36lXbTnkDd5RnlrbokMycg1FIgXeNjrqIR35or1ilTCCBXhyy1y0IrThHRqghZKnpWEjIQZq85pbo-KqD6c9CqPRdSxH01">--}}
+                                            {{--<input type="submit" value="{{$rolPro->rol->name }} en {{$rolPro->product->name }}">--}}
                                         </form>
                                     </li>
                                 @endforeach
