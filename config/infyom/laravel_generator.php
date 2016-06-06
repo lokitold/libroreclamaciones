@@ -108,7 +108,7 @@ return [
 
         'softDelete' => false,
 
-        'tables_searchable_default' => false,
+        'tables_searchable_default' => true,
     ],
 
     /*

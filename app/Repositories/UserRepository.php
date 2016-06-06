@@ -11,7 +11,11 @@ class UserRepository extends BaseRepository
      * @var array
      */
     protected $fieldSearchable = [
-        
+        'name',
+        'email',
+        'password',
+        'remember_token',
+        'superadmin'
     ];
 
     /**
