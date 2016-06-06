@@ -4,8 +4,8 @@
         <th>Email</th>
         <th>Password</th>
         <th>Remember Token</th>
-        <th>Created At</th>
-        <th>Updated At</th>
+        {{--<th>Created At</th>--}}
+        {{--<th>Updated At</th>--}}
         <th>Superadmin</th>
         <th colspan="3">Action</th>
     </thead>
@@ -16,8 +16,8 @@
             <td>{!! $user->email !!}</td>
             <td>{!! $user->password !!}</td>
             <td>{!! $user->remember_token !!}</td>
-            <td>{!! $user->created_at !!}</td>
-            <td>{!! $user->updated_at !!}</td>
+            {{--<td>{!! $user->created_at !!}</td>--}}
+            {{--<td>{!! $user->updated_at !!}</td>--}}
             <td>{!! $user->superadmin !!}</td>
             <td>
                 {!! Form::open(['route' => ['users.destroy', $user->id], 'method' => 'delete']) !!}
