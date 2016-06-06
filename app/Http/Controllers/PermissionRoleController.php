@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Flash;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
+use App\Repositories\PermissionRepository;
 
 class PermissionRoleController extends AppBaseController
 {
@@ -41,9 +42,20 @@ class PermissionRoleController extends AppBaseController
      *
      * @return Response
      */
-    public function create()
+    public function create(PermissionRepository $permissionRepo)
     {
-        return view('permissionRoles.create');
+        #select Permission
+        $this->permissionRepository = $permissionRepo;
+        $permissions = $this->permissionRepository->all();
+        $selectPermission = [];
+        foreach($permissions as $perm):
+            $selectPermission["$perm->id"] = $perm->name;
+        endforeach;
+        $defaultSelectPermission = null;
+
+        return view('permissionRoles.create')
+            ->with('selectPermission', $selectPermission)
+            ->with('defaultSelectPermission',$defaultSelectPermission);
     }
 
     /**
