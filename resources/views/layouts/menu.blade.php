@@ -18,3 +18,7 @@
     <a href="{!! route('permissionRoles.index') !!}"><i class="fa fa-edit"></i><span>PermissionRoles</span></a>
 </li>
 
+<li class="{{ Request::is('userRolProducts*') ? 'active' : '' }}">
+    <a href="{!! route('userRolProducts.index') !!}"><i class="fa fa-edit"></i><span>UserRolProducts</span></a>
+</li>
+
