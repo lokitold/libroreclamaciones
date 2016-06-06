@@ -30,7 +30,16 @@ class HomeController extends Controller
         return view('home');
     }
 
-    public function cambiarRol(){
-        echo "hellou";
+    public function cambiarRol(Request $request){
+
+        $rolProductuserId = (int) $request->rol;
+
+        if(!empty($rolProductuserId) and is_integer($rolProductuserId)):
+            $request->session()->put('user.product', $rolProductuserId);
+        else:
+            $request->session()->put('user.product', null);
+        endif;
+
+        return redirect('/');
     }
 }

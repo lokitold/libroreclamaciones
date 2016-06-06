@@ -46,6 +46,9 @@
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Cambiar Rol <span class="caret"></span></a>
                             <ul class="dropdown-menu" role="menu">
                                 @foreach($dataUserRolProducts as $rolPro)
+                                    @if($dataProduct->id == $rolPro->id)
+                                        <?php continue; ?>
+                                    @endif
                                     <li>
                                         <a onclick="document.getElementById('form{{$rolPro->id}}').submit();" href="#">{{$rolPro->rol->name }} en {{$rolPro->product->name }}</a>
                                         <form id="form{{$rolPro->id}}" action="/cambiar-rol" method="post">
