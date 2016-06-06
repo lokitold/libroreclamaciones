@@ -6,7 +6,7 @@ use Eloquent as Model;
 
 /**
  * @SWG\Definition(
- *      definition="Product",
+ *      definition="PermissionRole",
  *      required={},
  *      @SWG\Property(
  *          property="id",
@@ -15,26 +15,23 @@ use Eloquent as Model;
  *          format="int32"
  *      ),
  *      @SWG\Property(
- *          property="codigo",
- *          description="codigo",
- *          type="string"
+ *          property="rol_id",
+ *          description="rol_id",
+ *          type="integer",
+ *          format="int32"
  *      ),
  *      @SWG\Property(
- *          property="name",
- *          description="name",
- *          type="string"
- *      ),
- *      @SWG\Property(
- *          property="logo",
- *          description="logo",
- *          type="string"
+ *          property="permission_id",
+ *          description="permission_id",
+ *          type="integer",
+ *          format="int32"
  *      )
  * )
  */
-class Product extends Model
+class PermissionRole extends Model
 {
 
-    public $table = 'products';
+    public $table = 'permission_roles';
     
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
@@ -42,9 +39,8 @@ class Product extends Model
 
 
     public $fillable = [
-        'codigo',
-        'name',
-        'logo'
+        'rol_id',
+        'permission_id'
     ];
 
     /**
@@ -54,9 +50,8 @@ class Product extends Model
      */
     protected $casts = [
         'id' => 'integer',
-        'codigo' => 'string',
-        'name' => 'string',
-        'logo' => 'string'
+        'rol_id' => 'integer',
+        'permission_id' => 'integer'
     ];
 
     /**

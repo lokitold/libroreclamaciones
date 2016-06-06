@@ -20,6 +20,7 @@ class ComposerServiceProvider extends ServiceProvider
                 'products.*',
                 'users.*',
                 'permissions.*',
+                'permissionRoles.*',
                 'rols.*',
                 'home'
             ], 'App\Http\ViewComposers\ProfileComposer');

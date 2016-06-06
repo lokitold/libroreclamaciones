@@ -14,3 +14,7 @@
     <a href="{!! route('rols.index') !!}"><i class="fa fa-edit"></i><span>Rols</span></a>
 </li>
 
+<li class="{{ Request::is('permissionRoles*') ? 'active' : '' }}">
+    <a href="{!! route('permissionRoles.index') !!}"><i class="fa fa-edit"></i><span>PermissionRoles</span></a>
+</li>
+

@@ -34,9 +34,3 @@
     <p>{!! $product->updated_at !!}</p>
 </div>
 
-<!-- Office Id Field -->
-<div class="form-group">
-    {!! Form::label('office_id', 'Office Id:') !!}
-    <p>{!! $product->office_id !!}</p>
-</div>
-

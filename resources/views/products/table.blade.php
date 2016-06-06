@@ -5,7 +5,6 @@
         <th>Logo</th>
         <th>Created At</th>
         <th>Updated At</th>
-        <th>Office Id</th>
         <th colspan="3">Action</th>
     </thead>
     <tbody>
@@ -16,7 +15,6 @@
             <td>{!! $product->logo !!}</td>
             <td>{!! $product->created_at !!}</td>
             <td>{!! $product->updated_at !!}</td>
-            <td>{!! $product->office_id !!}</td>
             <td>
                 {!! Form::open(['route' => ['products.destroy', $product->id], 'method' => 'delete']) !!}
                 <div class='btn-group'>
