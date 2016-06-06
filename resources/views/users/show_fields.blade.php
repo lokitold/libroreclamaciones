@@ -40,3 +40,9 @@
     <p>{!! $user->updated_at !!}</p>
 </div>
 
+<!-- Superadmin Field -->
+<div class="form-group">
+    {!! Form::label('superadmin', 'Superadmin:') !!}
+    <p>{!! $user->superadmin !!}</p>
+</div>
+

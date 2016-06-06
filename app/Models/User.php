@@ -33,6 +33,12 @@ use Eloquent as Model;
  *          property="remember_token",
  *          description="remember_token",
  *          type="string"
+ *      ),
+ *      @SWG\Property(
+ *          property="superadmin",
+ *          description="superadmin",
+ *          type="integer",
+ *          format="int32"
  *      )
  * )
  */
@@ -50,7 +56,8 @@ class User extends Model
         'name',
         'email',
         'password',
-        'remember_token'
+        'remember_token',
+        'superadmin'
     ];
 
     /**
@@ -63,7 +70,8 @@ class User extends Model
         'name' => 'string',
         'email' => 'string',
         'password' => 'string',
-        'remember_token' => 'string'
+        'remember_token' => 'string',
+        'superadmin' => 'integer'
     ];
 
     /**
