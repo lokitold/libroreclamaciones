@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests;
 use Illuminate\Http\Request;
+use App\UserRolProduct;
+
 
 class HomeController extends Controller
 {
@@ -32,9 +34,14 @@ class HomeController extends Controller
 
     public function cambiarRol(Request $request){
 
+        $user = \Auth::user();
+
         $rolProductuserId = (int) $request->rol;
 
-        if(!empty($rolProductuserId) and is_integer($rolProductuserId)):
+        #validation role is user
+        $productRols = UserRolProduct::where('user_id',$user->id)->where('id',$rolProductuserId)->first();
+
+        if(!empty($productRols) and is_integer($rolProductuserId)):
             $request->session()->put('user.product', $rolProductuserId);
         else:
             $request->session()->put('user.product', null);
