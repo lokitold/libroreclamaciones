@@ -19,7 +19,8 @@
 <!-- Rol Id Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('rol_id', 'Rol Id:') !!}
-    {!! Form::number('rol_id', null, ['class' => 'form-control']) !!}
+    {{--{!! Form::number('rol_id', null, ['class' => 'form-control']) !!}--}}
+    {{ Form::select('rol_id', $selectRol, $defaultSelectRol, array('class' => 'form-control'))}}
 </div>
 
 <!-- Permission Id Field -->

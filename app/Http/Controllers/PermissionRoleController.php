@@ -11,6 +11,7 @@ use Flash;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
 use App\Repositories\PermissionRepository;
+use App\Repositories\RolRepository;
 
 class PermissionRoleController extends AppBaseController
 {
@@ -42,7 +43,7 @@ class PermissionRoleController extends AppBaseController
      *
      * @return Response
      */
-    public function create(PermissionRepository $permissionRepo)
+    public function create(PermissionRepository $permissionRepo,RolRepository $rolRepo)
     {
         #select Permission
         $this->permissionRepository = $permissionRepo;
@@ -53,9 +54,20 @@ class PermissionRoleController extends AppBaseController
         endforeach;
         $defaultSelectPermission = null;
 
+        #select Rol
+        $this->rolRepository = $rolRepo;
+        $rols = $this->rolRepository->all();
+        $selectRol = [];
+        foreach($rols as $rol):
+            $selectRol["$rol->id"] = $rol->name;
+        endforeach;
+        $defaultSelectRol = null;
+
         return view('permissionRoles.create')
             ->with('selectPermission', $selectPermission)
-            ->with('defaultSelectPermission',$defaultSelectPermission);
+            ->with('defaultSelectPermission',$defaultSelectPermission)
+            ->with('selectRol', $selectRol)
+            ->with('defaultSelectRol',$defaultSelectRol);
     }
 
     /**
