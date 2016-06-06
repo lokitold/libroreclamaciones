@@ -1,7 +1,7 @@
 <table class="table table-responsive" id="userRolProducts-table">
     <thead>
-        <th>Created At</th>
-        <th>Updated At</th>
+        {{--<th>Created At</th>--}}
+        {{--<th>Updated At</th>--}}
         <th>User Id</th>
         <th>Rol Id</th>
         <th>Product Id</th>
@@ -10,11 +10,11 @@
     <tbody>
     @foreach($userRolProducts as $userRolProduct)
         <tr>
-            <td>{!! $userRolProduct->created_at !!}</td>
-            <td>{!! $userRolProduct->updated_at !!}</td>
-            <td>{!! $userRolProduct->user_id !!}</td>
-            <td>{!! $userRolProduct->rol_id !!}</td>
-            <td>{!! $userRolProduct->product_id !!}</td>
+            {{--<td>{!! $userRolProduct->created_at !!}</td>--}}
+            {{--<td>{!! $userRolProduct->updated_at !!}</td>--}}
+            <td>{!! $userRolProduct->user->name !!}</td>
+            <td>{!! $userRolProduct->rol->name !!}</td>
+            <td>{!! $userRolProduct->product->name !!}</td>
             <td>
                 {!! Form::open(['route' => ['userRolProducts.destroy', $userRolProduct->id], 'method' => 'delete']) !!}
                 <div class='btn-group'>
