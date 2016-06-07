@@ -42,7 +42,7 @@ class HomeController extends Controller
         $productRols = UserRolProduct::where('user_id',$user->id)->where('id',$rolProductuserId)->first();
 
         if(!empty($productRols) and is_integer($rolProductuserId)):
-            $request->session()->put('user.product', $rolProductuserId);
+            $request->session()->put('user.product', $productRols->product_id);
         else:
             $request->session()->put('user.product', null);
         endif;
