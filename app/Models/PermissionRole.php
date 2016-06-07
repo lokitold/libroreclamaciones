@@ -62,4 +62,14 @@ class PermissionRole extends Model
     public static $rules = [
         
     ];
+
+    public function rol()
+    {
+        return $this->belongsTo('App\Role');
+    }
+
+    public function permission()
+    {
+        return $this->belongsTo('App\Permission');
+    }
 }

@@ -2,8 +2,8 @@
     <thead>
         <th>Name</th>
         <th>Status</th>
-        <th>Created At</th>
-        <th>Updated At</th>
+        {{--<th>Created At</th>--}}
+        {{--<th>Updated At</th>--}}
         <th colspan="3">Action</th>
     </thead>
     <tbody>
@@ -11,8 +11,8 @@
         <tr>
             <td>{!! $permission->name !!}</td>
             <td>{!! $permission->status !!}</td>
-            <td>{!! $permission->created_at !!}</td>
-            <td>{!! $permission->updated_at !!}</td>
+            {{--<td>{!! $permission->created_at !!}</td>--}}
+            {{--<td>{!! $permission->updated_at !!}</td>--}}
             <td>
                 {!! Form::open(['route' => ['permissions.destroy', $permission->id], 'method' => 'delete']) !!}
                 <div class='btn-group'>

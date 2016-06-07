@@ -1,7 +1,7 @@
 <table class="table table-responsive" id="permissionRoles-table">
     <thead>
-        <th>Created At</th>
-        <th>Updated At</th>
+        {{--<th>Created At</th>--}}
+        {{--<th>Updated At</th>--}}
         <th>Rol Id</th>
         <th>Permission Id</th>
         <th colspan="3">Action</th>
@@ -9,10 +9,10 @@
     <tbody>
     @foreach($permissionRoles as $permissionRole)
         <tr>
-            <td>{!! $permissionRole->created_at !!}</td>
-            <td>{!! $permissionRole->updated_at !!}</td>
-            <td>{!! $permissionRole->rol_id !!}</td>
-            <td>{!! $permissionRole->permission_id !!}</td>
+            {{--<td>{!! $permissionRole->created_at !!}</td>--}}
+            {{--<td>{!! $permissionRole->updated_at !!}</td>--}}
+            <td>{!! $permissionRole->rol->name !!}</td>
+            <td>{!! $permissionRole->permission->name !!}</td>
             <td>
                 {!! Form::open(['route' => ['permissionRoles.destroy', $permissionRole->id], 'method' => 'delete']) !!}
                 <div class='btn-group'>
