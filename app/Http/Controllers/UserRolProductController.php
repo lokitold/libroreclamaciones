@@ -10,6 +10,9 @@ use Illuminate\Http\Request;
 use Flash;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
+use App\Repositories\RolRepository;
+use App\Repositories\ProductRepository;
+use App\Repositories\UserRepository;
 
 class UserRolProductController extends AppBaseController
 {
@@ -41,9 +44,43 @@ class UserRolProductController extends AppBaseController
      *
      * @return Response
      */
-    public function create()
+    public function create(RolRepository $rolRepo,UserRepository $userRepo,ProductRepository $productRepo)
     {
-        return view('userRolProducts.create');
+        #select Rol
+        $this->rolRepository = $rolRepo;
+        $rols = $this->rolRepository->all();
+        $selectRol = [];
+        foreach($rols as $rol):
+            $selectRol["$rol->id"] = $rol->name;
+        endforeach;
+        $defaultSelectRol = null;
+
+        #select user
+        $this->userRepository = $userRepo;
+        $users = $this->userRepository->all();
+        $selectUser = [];
+        foreach($users as $user):
+            $selectUser["$user->id"] = $user->name;
+        endforeach;
+        $defaultSelectUser = null;
+
+        #select Product
+        $this->productRepository = $productRepo;
+        $products = $this->productRepository->all();
+        $selectProduct = [];
+        foreach($products as $prod):
+            $selectProduct["$prod->id"] = $prod->name;
+        endforeach;
+        $defaultSelectProduct = null;
+
+
+        return view('userRolProducts.create')
+            ->with('selectProduct', $selectProduct)
+            ->with('defaultSelectProduct',$defaultSelectProduct)
+            ->with('selectUser', $selectUser)
+            ->with('defaultSelectUser',$defaultSelectUser)
+            ->with('selectRol', $selectRol)
+            ->with('defaultSelectRol',$defaultSelectRol);
     }
 
     /**
