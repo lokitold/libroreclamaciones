@@ -128,7 +128,7 @@ class UserRolProductController extends AppBaseController
      *
      * @return Response
      */
-    public function edit($id)
+    public function edit($id,RolRepository $rolRepo,UserRepository $userRepo,ProductRepository $productRepo)
     {
         $userRolProduct = $this->userRolProductRepository->findWithoutFail($id);
 
@@ -138,7 +138,42 @@ class UserRolProductController extends AppBaseController
             return redirect(route('userRolProducts.index'));
         }
 
-        return view('userRolProducts.edit')->with('userRolProduct', $userRolProduct);
+        #select Rol
+        $this->rolRepository = $rolRepo;
+        $rols = $this->rolRepository->all();
+        $selectRol = [];
+        foreach($rols as $rol):
+            $selectRol["$rol->id"] = $rol->name;
+        endforeach;
+        $defaultSelectRol = $userRolProduct->rol_id;
+
+        #select user
+        $this->userRepository = $userRepo;
+        $users = $this->userRepository->all();
+        $selectUser = [];
+        foreach($users as $user):
+            $selectUser["$user->id"] = $user->name;
+        endforeach;
+        $defaultSelectUser = $userRolProduct->user_id;
+
+        #select Product
+        $this->productRepository = $productRepo;
+        $products = $this->productRepository->all();
+        $selectProduct = [];
+        foreach($products as $prod):
+            $selectProduct["$prod->id"] = $prod->name;
+        endforeach;
+        $defaultSelectProduct = $userRolProduct->product_id;
+
+
+
+        return view('userRolProducts.edit')->with('userRolProduct', $userRolProduct)
+            ->with('selectProduct', $selectProduct)
+            ->with('defaultSelectProduct',$defaultSelectProduct)
+            ->with('selectUser', $selectUser)
+            ->with('defaultSelectUser',$defaultSelectUser)
+            ->with('selectRol', $selectRol)
+            ->with('defaultSelectRol',$defaultSelectRol);;
     }
 
     /**
