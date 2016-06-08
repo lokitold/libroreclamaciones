@@ -29,9 +29,16 @@ class ProfileComposer {
         $dataUserRolProducts = UserRolProduct::where('user_id',$user->id)
             ->with('rol', 'product')->get();
 
+        #menu seguridad
+        $menuSeguridad = FALSE;
+        if(\Request::is('products*') or \Request::is('users*') or \Request::is('permissions*')  or \Request::is('rols*') or \Request::is('permissionRoles*') or \Request::is('userRolProducts*') ):
+            $menuSeguridad = TRUE;
+        endif;
+
         $view->with('dataRol',$dataRol);
         $view->with('dataProduct',$dataProduct);
         $view->with('dataUserRolProducts',$dataUserRolProducts);
+        $view->with('menuSeguridad',$menuSeguridad);
 
     }
 
