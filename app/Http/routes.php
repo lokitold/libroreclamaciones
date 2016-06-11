@@ -31,6 +31,7 @@ Route::group(['middleware' => ['auth','auth.product']], function () {
     Route::resource('rols', 'RolController');
     Route::resource('permissionRoles', 'PermissionRoleController');
     Route::resource('userRolProducts', 'UserRolProductController');
+    Route::resource('books', 'BookController');
 
 });
 
@@ -68,6 +69,8 @@ Route::get('generator_builder', '\InfyOm\GeneratorBuilder\Controllers\GeneratorB
 Route::get('field_template', '\InfyOm\GeneratorBuilder\Controllers\GeneratorBuilderController@fieldTemplate');
 
 Route::post('generator_builder/generate', '\InfyOm\GeneratorBuilder\Controllers\GeneratorBuilderController@generate');
+
+
 
 
 
