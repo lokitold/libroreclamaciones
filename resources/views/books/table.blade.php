@@ -1,12 +1,24 @@
 <table class="table table-responsive" id="books-table">
     <thead>
-        
+        <th>Codigo</th>
+        <th>Data</th>
+        <th>Status</th>
+        <th>Created At</th>
+        <th>Updated At</th>
+        <th>Office Id</th>
+        <th>Client Id</th>
         <th colspan="3">Action</th>
     </thead>
     <tbody>
     @foreach($books as $book)
         <tr>
-            
+            <td>{!! $book->codigo !!}</td>
+            <td>{!! $book->data !!}</td>
+            <td>{!! $book->status !!}</td>
+            <td>{!! $book->created_at !!}</td>
+            <td>{!! $book->updated_at !!}</td>
+            <td>{!! $book->office_id !!}</td>
+            <td>{!! $book->client_id !!}</td>
             <td>
                 {!! Form::open(['route' => ['books.destroy', $book->id], 'method' => 'delete']) !!}
                 <div class='btn-group'>

@@ -11,7 +11,11 @@ class BookRepository extends BaseRepository
      * @var array
      */
     protected $fieldSearchable = [
-        
+        'codigo',
+        'data',
+        'status',
+        'office_id',
+        'client_id'
     ];
 
     /**
