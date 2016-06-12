@@ -32,6 +32,7 @@ Route::group(['middleware' => ['auth','auth.product']], function () {
     Route::resource('permissionRoles', 'PermissionRoleController');
     Route::resource('userRolProducts', 'UserRolProductController');
     Route::resource('books', 'BookController');
+    Route::get('books.reasignar', ['as' => 'books.reasignar', 'uses' => 'BookController@reasignar'] );
 
 });
 
